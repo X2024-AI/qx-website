@@ -1,0 +1,145 @@
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #fff;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    padding: 20px;
+    max-width: 800px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.main-title {
+    font-size: 3rem;
+    color: #f5f5f7;
+    margin-bottom: 10px;
+}
+
+.main-subtitle {
+    font-size: 1.2rem;
+    color: #a1a1a6;
+}
+
+.avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.avatar img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid #f5f5f7;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.section {
+    background-color: #1c1c1e;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.section-title {
+    font-size: 1.8rem;
+    color: #f5f5f7;
+    margin-bottom: 10px;
+}
+
+.section-content {
+    font-size: 1rem;
+    color: #d1d1d6;
+}
+
+.emoji {
+    font-style: normal;
+}
+
+.container:hover .main-title {
+    color: #d1d1d6;
+    transition: color 0.3s ease;
+}
+
+.footer {
+    margin-top: 40px;
+    font-size: 1rem;
+    color: #a1a1a6;
+}
+
+.footer a {
+    color: #1e90ff;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.like-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #333;
+    color: #f5f5f7;
+    border: none;
+    border-radius: 30px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    overflow: hidden;
+    position: relative;
+}
+
+.like-button:hover {
+    background-color: #444;
+    transform: scale(1.05);
+}
+
+.like-count {
+    font-size: 1rem;
+    color: #d1d1d6;
+}
+
+.heart {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    font-size: 1.5rem;
+    color: red;
+    opacity: 0;
+    pointer-events: none;
+    animation: none;
+}
+
+@keyframes pop {
+    0% {
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 0;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.5);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0;
+    }
+}
