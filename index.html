@@ -11,10 +11,77 @@
 </head>
 
 <body>
-    <button class="like-button" onclick="handleLike(event)">
-        <span id="likeCount" class="like-count">0</span>
-        ♥
-    </button>
+    <!-- 顶部导航栏 -->
+    <nav class="top-nav">
+        <div class="nav-left">
+            <button class="like-button" onclick="handleLike()">
+                <span id="likeCount" class="like-count">0</span>
+                ♥
+            </button>
+        </div>
+        <div class="nav-right">
+            <div class="user-info">
+                <span id="userLikes" class="user-likes">点赞数：0</span>
+                <span id="userNickname" class="user-nickname"></span>
+                <img id="userAvatar" class="avatar-img" alt="用户头像">
+            </div>
+        </div>
+    </nav>
+
+    <!-- 用户认证模态框 -->
+    <div id="authModal" class="modal">
+        <div class="modal-content">
+            <div id="loginForm" class="auth-form">
+                <h2>欢迎回来</h2>
+                <div style="width: 100%;">
+                    <input type="tel" id="loginPhone" placeholder="请输入手机号" required>
+                </div>
+                <button onclick="handleLogin()">登录</button>
+                <p>还没有账号？<a href="#" onclick="showRegisterForm()">立即注册</a></p>
+            </div>
+
+            <div id="registerForm" class="auth-form" style="display: none;">
+                <h2>创建账号</h2>
+                <div style="width: 100%;">
+                    <input type="text" id="nickname" placeholder="请输入昵称" required>
+                    <input type="tel" id="phone" placeholder="请输入手机号" required>
+                </div>
+                <div class="avatar-upload">
+                    <label for="avatar" class="file-input-label">选择头像</label>
+                    <input type="file" id="avatar" accept="image/*" required>
+                    <img id="avatarPreview" style="display: none;">
+                </div>
+                <button onclick="handleRegister()">注册</button>
+                <p>已有账号？<a href="#" onclick="showLoginForm()">立即登录</a></p>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+<!-- 头像更新模态框 -->
+<div id="avatarUpdateModal" class="modal">
+    <div class="modal-content">
+        <div class="auth-form">
+            <h2>更新头像</h2>
+            <div class="avatar-upload">
+                <label for="newAvatar" class="file-input-label">选择新头像</label>
+                <input type="file" id="newAvatar" accept="image/*" required>
+                <img id="newAvatarPreview" style="display: none;">
+            </div>
+            <button onclick="handleAvatarUpdate()">保存更改</button>
+            <button onclick="closeAvatarModal()" class="secondary-button">取消</button>
+        </div>
+    </div>
+</div>
+
+<!-- 排行榜 -->
+    <div class="leaderboard">
+        <div class="leaderboard-content">
+            <h3>点赞排行榜</h3>
+            <div id="leaderboardList"></div>
+        </div>
+    </div>
 
     <div class="container">
         <header>
@@ -24,7 +91,7 @@
         </header>
 
         <div class="avatar">
-            <img src="images/avatar.jpg" alt="个人头像">
+            <img src="avatar.jpg" alt="个人头像">
         </div>
 
         <section class="section">
