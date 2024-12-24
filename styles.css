@@ -47,24 +47,51 @@ body {
 
 .section {
     background-color: #1c1c1e;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    margin-top: 40px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.section:hover {
+    transform: translateY(-5px);
 }
 
 .section-title {
-    font-size: 1.8rem;
+    font-size: 2rem;
     color: #f5f5f7;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #00a1d6, transparent);
 }
 
 .section-content {
-    font-size: 1rem;
+    font-size: 1.2rem;
     color: #d1d1d6;
+    line-height: 1.6;
 }
 
 .emoji {
     font-style: normal;
+    background: linear-gradient(45deg, #ff6b6b, #ffd93d);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    padding: 0 5px;
 }
 
 .container:hover .main-title {
@@ -142,4 +169,299 @@ body {
         transform: translate(-50%, -50%) scale(1);
         opacity: 0;
     }
+}
+
+.show-text {
+    display: inline-block;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #f7d794);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    animation: gradient 4s ease infinite, bounce 2s ease infinite;
+    position: relative;
+    font-size: 1.2em;
+    letter-spacing: 2px;
+    padding: 0 5px;
+}
+
+.show-text::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #f7d794);
+    z-index: -1;
+    filter: blur(10px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 4px;
+}
+
+.show-text:hover::before {
+    opacity: 0.7;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-10px) rotate(5deg);
+    }
+}
+
+.show-text:hover {
+    animation-play-state: paused;
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+}
+
+.title-divider {
+    width: 60%;
+    margin: 20px auto;
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent,
+        rgba(255, 255, 255, 0.3) 20%,
+        rgba(255, 255, 255, 0.5) 50%,
+        rgba(255, 255, 255, 0.3) 80%,
+        transparent
+    );
+    position: relative;
+    overflow: visible;
+}
+
+.title-divider::after {
+    content: '✧';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: #000;
+    padding: 0 15px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.8rem;
+}
+
+/* 修改轮播容器样式 */
+.carousel-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.carousel-section {
+    background: rgba(28, 28, 30, 0.8);
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.carousel-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+}
+
+.carousel-title {
+    color: #f5f5f7;
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    text-align: left;
+    padding-left: 20px;
+    position: relative;
+    font-weight: 600;
+}
+
+.carousel-title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 20px;
+    background: linear-gradient(to bottom, #00a1d6, #00b5e5);
+    border-radius: 2px;
+}
+
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 100%;
+}
+
+.carousel-track img {
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    object-fit: cover;
+    filter: brightness(0.95);
+    transition: filter 0.3s ease;
+}
+
+.carousel-track img:hover {
+    filter: brightness(1.05);
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    z-index: 2;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+}
+
+.carousel:hover .carousel-button {
+    opacity: 1;
+}
+
+.carousel-button:hover {
+    background: rgba(0, 0, 0, 0.8);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-button.prev {
+    left: 20px;
+}
+
+.carousel-button.next {
+    right: 20px;
+}
+
+.carousel-dots {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    padding: 5px 10px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+}
+
+.carousel-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.carousel-dot:hover {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.carousel-dot.active {
+    width: 18px;
+    border-radius: 3px;
+    background: #00a1d6;
+}
+
+/* 添加响应式布局 */
+@media (max-width: 768px) {
+    .carousel-container {
+        width: 95%;
+        gap: 30px;
+    }
+
+    .carousel {
+        height: 300px;
+    }
+
+    .carousel-title {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+}
+
+/* 添加新样式 */
+.gallery-link {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.view-gallery {
+    display: inline-block;
+    padding: 12px 24px;
+    background: linear-gradient(45deg, #00a1d6, #00b5e5);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 161, 214, 0.3);
+}
+
+.view-gallery:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 161, 214, 0.4);
+}
+
+.back-to-home {
+    margin: 40px 0;
+    text-align: center;
+}
+
+.home-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #f5f5f7;
+    text-decoration: none;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.home-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
 }

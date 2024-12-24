@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>小杨知行 - Show</title>
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <title>小杨知行 - Blog</title>
     <link rel="stylesheet" href="styles.css">
     <script src="scripts.js" defer></script>
 </head>
@@ -12,28 +13,31 @@
 <body>
     <button class="like-button" onclick="handleLike(event)">
         <span id="likeCount" class="like-count">0</span>
-        ♥<span class="heart">0</span>
+        ♥
     </button>
 
     <div class="container">
         <header>
-            <h1 class="main-title">“小杨知行”的个人 Show</h1>
+            <h1 class="main-title">"小杨知行"的个人 <span class="show-text">Show</span></h1>
+            <hr class="title-divider">
             <p class="main-subtitle">《论程序员的自我修养》</p>
         </header>
 
         <div class="avatar">
-            <img src="F:\视频图片\平板图片\图\1673326707145.jpg" alt="个人头像">
+            <img src="images/avater.jpg" alt="个人头像">
         </div>
 
         <section class="section">
-            <h2 class="section-title">小标题: 生活灯光展</h2>
+            <h2 class="section-title">生活灯光展</h2>
             <p class="section-content">骞骞君子 <span class="emoji">【doge】</span></p>
+            <div class="gallery-link">
+                <a href="gallery.html" class="view-gallery">查看照片集 →</a>
+            </div>
         </section>
     </div>
 
     <footer class="footer">
-        <p>访问我的 <a href="https://space.bilibili.com/3494371362081330?spm_id_from=333.1007.0.0" target="_blank">B站空间</a>
-        </p>
+        <p>访问我的 <a href="https://space.bilibili.com/3494371362081330?spm_id_from=333.1007.0.0" target="_blank">B站空间</a></p>
     </footer>
 </body>
 
